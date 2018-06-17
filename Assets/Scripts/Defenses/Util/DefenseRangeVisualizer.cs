@@ -12,8 +12,7 @@ public class DefenseRangeVisualizer : MonoBehaviour {
 
     void Start()
     {
-        xradius = GetComponent<DefenseBase>().range;
-        yradius = GetComponent<DefenseBase>().range;
+        line.useWorldSpace = false;
         CreatePoints();
     }
 
@@ -31,9 +30,7 @@ public class DefenseRangeVisualizer : MonoBehaviour {
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
 
-            Vector3 localPos = new Vector3(x, 0, z);
-
-            line.SetPosition(i, transform.InverseTransformPoint(localPos));
+            line.SetPosition(i, new Vector3(x, 0, z));
 
             angle += (360f / segments);
         }

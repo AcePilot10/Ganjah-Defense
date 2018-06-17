@@ -36,6 +36,11 @@ public class DefensePlacement : MonoBehaviour {
             {
                 PlaceObject();
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelPlacing();
+            }
         }
 
         UpdateOutlinePosition();
@@ -69,7 +74,7 @@ public class DefensePlacement : MonoBehaviour {
 
             GameObject defense = Instantiate(defenseToSpawn) as GameObject;
             defense.transform.position = spawnPos;
-            defense.transform.SetParent(holderObject.transform);
+            //defense.transform.SetParent(holderObject.transform);
 
             isPlacing = false;
         }

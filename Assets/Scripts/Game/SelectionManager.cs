@@ -36,14 +36,11 @@ public class SelectionManager : MonoBehaviour {
                 }
             }
         }
-        else
-        {
-            Debug.Log("Cannot select!");
-        }
     }
 
     public void SelectDefense(DefenseBase defense)
     {
+        if (selected != null) DeselectDefense();
         Debug.Log("Selected " + defense.name);
         selected = defense;
         selected.Select();

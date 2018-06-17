@@ -15,7 +15,7 @@ public class TestTurret : DefenseBase
     {
         GameObject obj = Instantiate(projectile) as GameObject;
         obj.transform.position = shootPos.position;
-        obj.transform.SetParent(binObject.transform);
+        //obj.transform.SetParent(binObject.transform);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.velocity = shootPos.forward * projectileSpeed;
     }
