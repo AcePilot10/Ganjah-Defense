@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour {
     {
         isSwitchingLevels = true;
         currentTime = levelDelay;
+        AdjustDifficulty();
         StartCoroutine(NextLevelDelay());
     }
 
@@ -75,6 +76,54 @@ public class LevelManager : MonoBehaviour {
         level++;
         isSwitchingLevels = false;
         EnemySpawner.instance.SpawnNextWave();
+    }
+
+    private void AdjustDifficulty()
+    {
+
+        //TODO: Adjust for stash taken
+
+        //Acumalitive Health
+        int enemiesSpawned = DifficultyManager.CalculateEnemiesToSpawn();
+        float survivalRate = enemiesKilled / enemiesSpawned * 100;
+
+        if (survivalRate == 0)
+        {
+            DifficultyManager.statusMultiplier += 0.06f;
+            DifficultyManager.spawnMultiplier += 0.05f;
+            DifficultyManager.globalDifficulty += 4;
+        }
+
+        else if (survivalRate < 4)
+        {
+            DifficultyManager.statusMultiplier -= 0.04f;
+            DifficultyManager.spawnMultiplier -= 0.03f;
+            DifficultyManager.globalDifficulty -= 2;
+        }
+
+        else if (survivalRate < 10 )
+        {
+            DifficultyManager.statusMultiplier -= 0.05f;
+            DifficultyManager.spawnMultiplier -= 0.04f;
+            DifficultyManager.globalDifficulty -= 4;
+        }
+
+        else if (survivalRate < 20)
+        {
+            DifficultyManager.statusMultiplier -= 0.07f;
+            DifficultyManager.spawnMultiplier -= 0.05f;
+            DifficultyManager.globalDifficulty -= 6;
+        }
+
+        else
+        {
+            DifficultyManager.statusMultiplier -= 0.10f;
+            DifficultyManager.spawnMultiplier -= 0.075f;
+            DifficultyManager.globalDifficulty -= 8;
+        }
+
+        enemiesKilled = 0;
+        stashTaken = 0;
     }
     #endregion
 }
