@@ -9,12 +9,13 @@ public class TestTurret : DefenseBase
     public float projectileSpeed;
     public Transform shootPos;
     public float rotateSpeed;
+    public GameObject binObject;
 
     public override void Fire()
     {
-        Debug.Log("Firing!");
         GameObject obj = Instantiate(projectile) as GameObject;
         obj.transform.position = shootPos.position;
+        obj.transform.SetParent(binObject.transform);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.velocity = shootPos.forward * projectileSpeed;
     }

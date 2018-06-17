@@ -8,7 +8,7 @@ public class CurrencyManager : MonoBehaviour {
 
     public static CurrencyManager instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }

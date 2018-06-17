@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour {
 
+    public delegate void EnemyDeathEvent(EnemyBase enemy);
+    public static event EnemyDeathEvent OnEnemyDeath;
+
     public float health;
     public int currentWaypoint = 0;
 
@@ -56,6 +59,7 @@ public class EnemyBase : MonoBehaviour {
 
     public void Die()
     {
+        if (OnEnemyDeath != null) OnEnemyDeath(this);
         Destroy(gameObject);
     }
 

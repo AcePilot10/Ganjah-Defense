@@ -11,14 +11,14 @@ public abstract class DefenseBase : MonoBehaviour {
     public bool canFire = true;
     #endregion
     #region References
-    public EnemyBase currentTarget;
+    [HideInInspector] public EnemyBase currentTarget;
     #endregion
     #region Debugging
     public bool debug = true;
     #endregion
     #endregion
 
-    private void Start() {}
+    private void Start() { }
 
     private void Update()
     {
@@ -113,4 +113,21 @@ public abstract class DefenseBase : MonoBehaviour {
 
     #endregion
 
+    #region Selectoin
+    public void Select()
+    {
+        if (GetComponent<DefenseRangeVisualizer>() != null)
+        {
+            GetComponent<DefenseRangeVisualizer>().line.gameObject.SetActive(true);
+        }
+    }
+
+    public void Deselect()
+    {
+        if (GetComponent<DefenseRangeVisualizer>() != null)
+        {
+            GetComponent<DefenseRangeVisualizer>().line.gameObject.SetActive(false);
+        }
+    }
+    #endregion
 }

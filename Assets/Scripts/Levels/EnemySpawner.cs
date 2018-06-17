@@ -10,9 +10,11 @@ public class EnemySpawner : MonoBehaviour {
 
     public bool isSpawning = false;
 
+    public GameObject enemy;
+
     public static EnemySpawner instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
@@ -24,17 +26,19 @@ public class EnemySpawner : MonoBehaviour {
     {
         isSpawning = true;
         enemiesSpawned = 0;
-        enemiesToSpawn = DifficultyManager.instance.CalculateEnemiesToSpawn();
+        enemiesToSpawn = DifficultyManager.CalculateEnemiesToSpawn();
+        Debug.Log("Spawning " + enemiesToSpawn + " enemies!");
         StartCoroutine(SpawnDelay());
     }
 
     private void SpawnEnemy()
     {
-        Debug.Log("Spawning enemy!");
+        //Debug.Log("Spawning enemy!");
         enemiesSpawned++;
         if (enemiesSpawned < enemiesToSpawn)
         {
-            //TODO Spawn Enemy
+            GameObject obj = Instantiate(enemy) as GameObject;
+            obj.transform.position = spawnPos.position;
             StartCoroutine(SpawnDelay());
         }
         else
