@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour {
 
-    public float currency;
+    public int currency;
 
     public static CurrencyManager instance;
 

@@ -9,7 +9,7 @@ public class EnemyBase : MonoBehaviour {
 
     public float health;
     public int currentWaypoint = 0;
-
+    public AnimationCurve spawnWeight;
     public float moveSpeed;
 
     private Rigidbody rb;

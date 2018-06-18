@@ -13,5 +13,4 @@ public class NavigationManager : MonoBehaviour {
     {
         instance = this;
     }
-
 }

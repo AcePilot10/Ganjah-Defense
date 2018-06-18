@@ -15,13 +15,17 @@ public class DefensePlacement : MonoBehaviour {
 
     #region Members
     public bool isPlacing = false;
+
     public GameObject outlineObject;
+
     public Material redMaterial;
     public Material greenMaterial;
-    public GameObject holderObject;
-    public GameObject defenseToSpawn;
+
+    public DefenseContainer[] containers;
+
     public float surfaceLevel;
 
+    private GameObject defenseToSpawn;
     private LineRenderer objectLine;
     private GameObject currentOutline;
 
@@ -47,11 +51,11 @@ public class DefensePlacement : MonoBehaviour {
     }
 
     #region Public Functions
-    public void BeginPlacingObject(GameObject defense)
+    public void BeginPlacingObject(DefenseContainer defense)
     {
         isPlacing = true;
         currentOutline = Instantiate(outlineObject) as GameObject;
-        defenseToSpawn = defense;
+        defenseToSpawn = defense.defensePrefab;
     }
 
     public void CancelPlacing()

@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public bool isSpawning = false;
 
-    public GameObject enemy;
+    public GameObject[] enemies;
 
     public static EnemySpawner instance;
 
@@ -33,11 +33,10 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy()
     {
-        //Debug.Log("Spawning enemy!");
         enemiesSpawned++;
         if (enemiesSpawned < enemiesToSpawn)
         {
-            GameObject obj = Instantiate(enemy) as GameObject;
+            GameObject obj = Instantiate(GetEnemyToSpawn()) as GameObject;
             obj.transform.position = spawnPos.position;
             StartCoroutine(SpawnDelay());
         }
@@ -46,6 +45,31 @@ public class EnemySpawner : MonoBehaviour {
             Debug.Log("Finished spawning enemies!");
             isSpawning = false;
         }
+    }
+
+    private GameObject GetEnemyToSpawn()
+    {
+        float totalWeight = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            float weight = enemy.GetComponent<EnemyBase>().spawnWeight.Evaluate(LevelManager.instance.level);
+            totalWeight += weight;
+        }
+
+        System.Random rdm = new System.Random();
+        int rdmNum = rdm.Next(0, (int)totalWeight);
+
+        float currentWeight = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            currentWeight += enemy.GetComponent<EnemyBase>().spawnWeight.Evaluate(LevelManager.instance.level);
+            if (currentWeight > rdmNum)
+            {
+                return enemy;
+            }
+        }
+
+        return null;
     }
 
     private IEnumerator SpawnDelay()
