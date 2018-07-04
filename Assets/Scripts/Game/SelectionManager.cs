@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour {
 
-    public DefenseBase selected;
+    public ISelectable selected;
 
     private void Update()
     {
@@ -20,13 +20,12 @@ public class SelectionManager : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
                 {
-                    //Debug.Log("Checking selection!");
-                    if (hit.collider.GetComponent<DefenseBase>() != null)
+                    if (hit.collider.GetComponent<ISelectable>() != null)
                     {
-                        DefenseBase defense = hit.collider.GetComponent<DefenseBase>();
-                        if (selected != defense)
+                        ISelectable selectableDefense = hit.collider.GetComponent<ISelectable>();
+                        if (selectableDefense != selected)
                         {
-                            SelectDefense(defense);
+                            SelectDefense(selectableDefense);
                         }
                         else
                         {
@@ -38,17 +37,15 @@ public class SelectionManager : MonoBehaviour {
         }
     }
 
-    public void SelectDefense(DefenseBase defense)
+    public void SelectDefense(ISelectable defense)
     {
         if (selected != null) DeselectDefense();
-        Debug.Log("Selected " + defense.name);
         selected = defense;
         selected.Select();
     }
 
     public void DeselectDefense()
     {
-        Debug.Log("Deselected " + selected.name);
         selected.Deselect();
         selected = null;
     }

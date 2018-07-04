@@ -12,6 +12,8 @@ public class EnemyBase : MonoBehaviour {
     public AnimationCurve spawnWeight;
     public float moveSpeed;
 
+    public AudioClip deathSound;
+
     private Rigidbody rb;
 
     private void Start()
@@ -60,6 +62,7 @@ public class EnemyBase : MonoBehaviour {
     public void Die()
     {
         if (OnEnemyDeath != null) OnEnemyDeath(this);
+        AudioManager.instance.PlayAudio(deathSound);
         Destroy(gameObject);
     }
 

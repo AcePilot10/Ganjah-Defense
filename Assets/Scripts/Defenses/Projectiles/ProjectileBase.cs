@@ -6,9 +6,11 @@ public class ProjectileBase : MonoBehaviour {
 
     public float damage;
     public float lifeTime = 10f;
+    public AudioClip hitSound;
 
     private void Start()
     {
+        transform.parent = GameObject.FindGameObjectWithTag("Projectile Bin").transform;
         StartCoroutine(LifetimeDelay());
     }
 
@@ -17,7 +19,12 @@ public class ProjectileBase : MonoBehaviour {
         if (collision.gameObject.GetComponent<EnemyBase>() != null)
         {
             EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
+            AudioManager.instance.PlayAudio(hitSound);
             enemy.Damage(damage);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Map")
+        {
             Destroy(gameObject);
         }
     }

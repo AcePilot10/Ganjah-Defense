@@ -16,8 +16,6 @@ public class DefensePlacement : MonoBehaviour {
     #region Members
     public bool isPlacing = false;
 
-    public GameObject outlineObject;
-
     public Material redMaterial;
     public Material greenMaterial;
 
@@ -25,11 +23,14 @@ public class DefensePlacement : MonoBehaviour {
 
     public float surfaceLevel;
 
-    private GameObject defenseToSpawn;
+    public AudioClip errorSound;
+    public AudioClip placeSound;
+
+    public DefenseSelectionInfoBox infoBoxObject;
+
+    private DefenseContainer defenseToSpawn;
     private LineRenderer objectLine;
     private GameObject currentOutline;
-
-    public int placeableTexture = 0;
     #endregion
 
     private void Update()
@@ -54,8 +55,8 @@ public class DefensePlacement : MonoBehaviour {
     public void BeginPlacingObject(DefenseContainer defense)
     {
         isPlacing = true;
-        currentOutline = Instantiate(outlineObject) as GameObject;
-        defenseToSpawn = defense.defensePrefab;
+        currentOutline = Instantiate(defense.outlineObject) as GameObject;
+        defenseToSpawn = defense;
     }
 
     public void CancelPlacing()
@@ -66,6 +67,12 @@ public class DefensePlacement : MonoBehaviour {
             isPlacing = false;
         }
     }
+
+    public void ShowInfo(DefenseContainer defense)
+    {
+        infoBoxObject.InitInfo(defense);
+        infoBoxObject.ShowInfo();
+    }
     #endregion
 
     #region Helpers
@@ -74,17 +81,21 @@ public class DefensePlacement : MonoBehaviour {
         if (CanPlaceAtPosition())
         {
             Vector3 spawnPos = currentOutline.transform.position;
+            spawnPos.y = surfaceLevel;
             Destroy(currentOutline);
 
-            GameObject defense = Instantiate(defenseToSpawn) as GameObject;
+            GameObject defense = Instantiate(defenseToSpawn.defensePrefab) as GameObject;
             defense.transform.position = spawnPos;
-            //defense.transform.SetParent(holderObject.transform);
+            defense.transform.parent = GameObject.FindGameObjectWithTag("Defense Bin").transform;
+
+            AudioManager.instance.PlayAudio(placeSound);
 
             isPlacing = false;
         }
         else
         {
             Debug.Log("Couldn't place at that position!");
+            AudioManager.instance.PlayAudio(errorSound);
         }
     }
 
@@ -99,16 +110,34 @@ public class DefensePlacement : MonoBehaviour {
             {
                 Vector3 spawnPos = new Vector3(hit.point.x, hit.point.y + surfaceLevel, hit.point.z);
                 currentOutline.transform.position = spawnPos;
-                Renderer renderer = currentOutline.GetComponent<Renderer>();
                 if (CanPlaceAtPosition())
                 {
-                    renderer.material = greenMaterial;
+                    SetRendererColor(1);
                 }
                 else
                 {
-                    renderer.material = redMaterial;
+                    SetRendererColor(2);
                 }
             }
+        }
+    }
+
+    private void SetRendererColor(int color)
+    {
+        MeshRenderer[] renderers = currentOutline.GetComponent<PlacementVisualizerReference>().renderers;
+        Material material = null;
+        switch (color)
+        {
+            case 1:
+                material = greenMaterial;
+                break;
+            case 2:
+                material = redMaterial;
+                break;
+        }
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material = material;
         }
     }
 
@@ -116,7 +145,7 @@ public class DefensePlacement : MonoBehaviour {
     {
         Vector3 pos = currentOutline.transform.position;
         int texture = PlacementUtil.GetMainTexture(pos);
-        if (texture == placeableTexture)
+        if (texture == defenseToSpawn.placeableTextureIndex)
         {
             return true;
         }

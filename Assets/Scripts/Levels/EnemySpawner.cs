@@ -27,6 +27,12 @@ public class EnemySpawner : MonoBehaviour {
         isSpawning = true;
         enemiesSpawned = 0;
         enemiesToSpawn = DifficultyManager.CalculateEnemiesToSpawn();
+
+
+        float level = LevelManager.instance.level;
+        PrototypeStatisticsManager.WriteToFile(string.Format("{0}:{1}", level, enemiesToSpawn));
+
+
         Debug.Log("Spawning " + enemiesToSpawn + " enemies!");
         StartCoroutine(SpawnDelay());
     }
@@ -38,6 +44,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             GameObject obj = Instantiate(GetEnemyToSpawn()) as GameObject;
             obj.transform.position = spawnPos.position;
+            obj.transform.parent = GameObject.FindGameObjectWithTag("Enemy Bin").transform;
             StartCoroutine(SpawnDelay());
         }
         else

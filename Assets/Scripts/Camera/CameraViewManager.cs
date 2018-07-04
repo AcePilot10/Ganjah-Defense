@@ -5,9 +5,10 @@ using UnityEngine;
 public class CameraViewManager : MonoBehaviour {
 
     public float moveSpeed;
-
     public Transform[] views;
     public int currentView = 0;
+
+    private bool isMoving = true;
 
     private void Update()
     {
@@ -34,6 +35,7 @@ public class CameraViewManager : MonoBehaviour {
         {
             currentView = 0;
         }
+        isMoving = true;
     }
 
     public void ViewDown()
@@ -46,13 +48,26 @@ public class CameraViewManager : MonoBehaviour {
         {
             currentView = views.Length - 1;
         }
+        isMoving = true;
     }
 
     private void UpdateView()
     {
-        Vector3 targetPos = views[currentView].position;
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * moveSpeed);
-        Quaternion targetRotation = views[currentView].rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
+        if (isMoving)
+        {
+            Vector3 targetPos = views[currentView].position;
+            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * moveSpeed);
+            Quaternion targetRotation = views[currentView].rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
+            CheckDistance();
+        }
+    }
+
+    private void CheckDistance()
+    {
+        if (Vector3.Distance(transform.position, views[currentView].position) == 0)
+        {
+            isMoving = false;
+        }
     }
 }

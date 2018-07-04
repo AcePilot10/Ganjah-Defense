@@ -2,9 +2,10 @@
 
 public class DifficultyManager {
 
-    public static float statusPoint = 1;
-    public static float spawnPoint = 1;
-    public static float rewardPoint = 1;
+    private static float statusPoint = 1;
+    private static float spawnPoint = 1;
+    private static float rewardPoint = 1;
+
     public static float globalDifficulty = 10;
 
     #region Multipliers
@@ -35,7 +36,7 @@ public class DifficultyManager {
         int baseAmount = EnemySpawner.instance.baseAmount;
         return Mathf.RoundToInt(baseAmount + (globalDifficulty / 100) + CalculateSpawnPoint());
     }
-
+    
     public static float CalculateBonusReward()
     {
         return (globalDifficulty / 100) + spawnPoint;

@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         currentTime--;
+        NotificationManager.instance.ShowMessage("Next round starts in: " + currentTime);
         //Debug.Log("Starting level in: " + currentTime);
         if (currentTime == 0)
         {
@@ -86,39 +87,40 @@ public class LevelManager : MonoBehaviour {
         //Acumalitive Health
         int enemiesSpawned = DifficultyManager.CalculateEnemiesToSpawn();
         float survivalRate = enemiesKilled / enemiesSpawned * 100;
+        float difficulty = difficultyIncrease.Evaluate(level + 1);
 
         if (survivalRate == 0)
         {
-            DifficultyManager.statusMultiplier += 0.06f;
-            DifficultyManager.spawnMultiplier += 0.05f;
-            DifficultyManager.globalDifficulty += 4;
+            DifficultyManager.statusMultiplier += 0.06f * difficulty;
+            DifficultyManager.spawnMultiplier += 0.5f * difficulty;
+            DifficultyManager.globalDifficulty += 8 * difficulty;
         }
 
         else if (survivalRate < 4)
         {
-            DifficultyManager.statusMultiplier -= 0.04f;
-            DifficultyManager.spawnMultiplier -= 0.03f;
-            DifficultyManager.globalDifficulty -= 2;
+            DifficultyManager.statusMultiplier -= 0.04f * difficulty;
+            DifficultyManager.spawnMultiplier += 0.2f * difficulty;
+            DifficultyManager.globalDifficulty += 4 * difficulty;
         }
 
         else if (survivalRate < 10 )
         {
-            DifficultyManager.statusMultiplier -= 0.05f;
-            DifficultyManager.spawnMultiplier -= 0.04f;
-            DifficultyManager.globalDifficulty -= 4;
+            DifficultyManager.statusMultiplier -= 0.05f * difficulty;
+            DifficultyManager.spawnMultiplier -= 0.3f * difficulty;
+            DifficultyManager.globalDifficulty -= 3 * difficulty;
         }
 
         else if (survivalRate < 20)
         {
-            DifficultyManager.statusMultiplier -= 0.07f;
-            DifficultyManager.spawnMultiplier -= 0.05f;
-            DifficultyManager.globalDifficulty -= 6;
+            DifficultyManager.statusMultiplier -= 0.07f * difficulty;
+            DifficultyManager.spawnMultiplier -= 0.5f * difficulty;
+            DifficultyManager.globalDifficulty -= 6 * difficulty;
         }
 
         else
         {
             DifficultyManager.statusMultiplier -= 0.10f;
-            DifficultyManager.spawnMultiplier -= 0.075f;
+            DifficultyManager.spawnMultiplier -= 0.75f;
             DifficultyManager.globalDifficulty -= 8;
         }
 

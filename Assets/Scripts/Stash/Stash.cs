@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stash : MonoBehaviour {
 
+    public float health = 100;
+
     private void OnCollisionEnter(Collision collision)
     {
         GameObject obj = collision.gameObject;
@@ -11,7 +13,6 @@ public class Stash : MonoBehaviour {
         {
             EnemyBase enemy = obj.GetComponent<EnemyBase>();
             enemy.ExecuteHitStash();
-            
         }
     }
 }

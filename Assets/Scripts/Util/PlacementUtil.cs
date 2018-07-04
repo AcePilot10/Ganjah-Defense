@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacementUtil : MonoBehaviour {
+public class PlacementUtil : MonoBehaviour{
 
     private static Terrain terrain;
     private static TerrainData terrainData;

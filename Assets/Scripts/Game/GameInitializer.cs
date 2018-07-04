@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameInitializer : MonoBehaviour {
+public class GameInitializer : MonoBehaviour
+{
 
-	void Start ()
+    void Start()
     {
         LevelManager.instance.StartNextLevel();
-	}
+    }
 }
