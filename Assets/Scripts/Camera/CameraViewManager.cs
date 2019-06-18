@@ -7,8 +7,7 @@ public class CameraViewManager : MonoBehaviour {
     public float moveSpeed;
     public Transform[] views;
     public int currentView = 0;
-
-    private bool isMoving = true;
+    public bool isMoving = true;
 
     private void Update()
     {
@@ -65,7 +64,7 @@ public class CameraViewManager : MonoBehaviour {
 
     private void CheckDistance()
     {
-        if (Vector3.Distance(transform.position, views[currentView].position) == 0)
+        if (Vector3.Distance(transform.position, views[currentView].position) < 1)
         {
             isMoving = false;
         }

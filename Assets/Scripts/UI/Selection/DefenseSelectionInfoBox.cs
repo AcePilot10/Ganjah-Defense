@@ -1,13 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class DefenseSelectionInfoBox : MonoBehaviour {
+public class DefenseSelectionInfoBox : MonoBehaviour
+{
 
     public GameObject infoBox;
     public GameObject textPrefab;
     public Image iconObject;
+    public Button placeButton;
+
+    private void OnEnable()
+    {
+        //gameObject.SetActive(false);
+    }
 
     public void InitInfo(DefenseContainer defense)
     {
@@ -19,6 +27,15 @@ public class DefenseSelectionInfoBox : MonoBehaviour {
             text.GetComponent<InfoText>().text.text = info;
             text.transform.SetParent(infoBox.transform);
         }
+        placeButton.onClick.RemoveAllListeners();
+        placeButton.onClick.AddListener(() => PlaceDefense(defense));
+        gameObject.SetActive(true);
+    }
+
+    public void PlaceDefense(DefenseContainer defense)
+    {
+        DefensePlacement.instance.BeginPlacingObject(defense);
+        Hide();
     }
 
     private void ClearInfo()
@@ -29,12 +46,7 @@ public class DefenseSelectionInfoBox : MonoBehaviour {
         }
     }
 
-    public void ShowInfo()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void HideInfo()
+    public void Hide()
     {
         gameObject.SetActive(false);
     }

@@ -1,0 +1,39 @@
+Created new stat log file. Id: be6add7a-40c2-4c65-9428-0f6a6acb4577
+Global Difficulty: 10
+Enemy Spawning Power: 1
+Spawning 9 enemies
+Global Difficulty: 18.26302
+Enemy Spawning Power: 3.065754
+Spawning 11 enemies
+Began placing defense
+Began placing defense
+Finished spawning enemies!
+Global Difficulty: 18.26302
+Enemy Spawning Power: 3.065754
+Spawning 11 enemies
+Global Difficulty: 27.27237
+Enemy Spawning Power: 5.318092
+Spawning 14 enemies
+Officer(Clone) has reached the stash!
+Officer(Clone) has reached the stash!
+Officer(Clone) has reached the stash!
+Sheriff(Clone) has reached the stash!
+Finished spawning enemies!
+Officer(Clone) has reached the stash!
+Officer(Clone) has reached the stash!
+Officer(Clone) has reached the stash!
+Rookie(Clone) has reached the stash!
+Sheriff(Clone) has reached the stash!
+Sheriff(Clone) has reached the stash!
+Global Difficulty: 27.27237
+Enemy Spawning Power: 5.318092
+Spawning 14 enemies
+Global Difficulty: 37.44059
+Enemy Spawning Power: 7.860147
+Spawning 16 enemies
+SWAT(Clone) has reached the stash!
+SWAT(Clone) has reached the stash!
+SWAT(Clone) has reached the stash!
+Sheriff(Clone) has reached the stash!
+Sheriff(Clone) has reached the stash!
+All of the stash has been taken!

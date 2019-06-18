@@ -8,4 +8,5 @@ public class UpgradeContentHolder : MonoBehaviour {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI currentText;
     public TextMeshProUGUI upgradedText;
+    public TextMeshProUGUI costText;
 }

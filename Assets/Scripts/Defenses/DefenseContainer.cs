@@ -8,9 +8,10 @@ public class DefenseContainer : ScriptableObject {
 
     public GameObject defensePrefab;
     public string defenseName;
-    public int placeableTextureIndex;
+    public List<int> placeableTextureIndexes;
     public GameObject outlineObject;
     public string[] info;
     public Sprite icon;
-
+    public float price;
+    public Vector3 placeOffset;
 }

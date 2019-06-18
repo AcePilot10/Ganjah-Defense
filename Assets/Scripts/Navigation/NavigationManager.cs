@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class NavigationManager : MonoBehaviour {
 
-    public Transform[] waypoints;
+    public Transform waypointHolder;
+
+    //[Header("DYNAMICALLY ADDED")]
+    [HideInInspector]public List<Transform> waypoints = new List<Transform>();
 
     public static NavigationManager instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        foreach (Transform child in waypointHolder)
+        {
+            waypoints.Add(child);
+        }
     }
 }

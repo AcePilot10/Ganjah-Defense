@@ -14,6 +14,6 @@ public class CurrencyText : MonoBehaviour {
 
     private void Update()
     {
-        text.text = CurrencyManager.instance.currency.ToString();
+        text.text = CurrencyManager.instance.Weed.ToString();
     }
 }

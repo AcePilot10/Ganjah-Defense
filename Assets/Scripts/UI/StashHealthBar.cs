@@ -11,7 +11,7 @@ public class StashHealthBar : MonoBehaviour {
     private void Update()
     {
         Stash stash = FindObjectOfType<Stash>();
-        healthText.text = stash.health + "%";
-        healthSlider.value = stash.health;
+        healthText.text = stash.Health + "%";
+        healthSlider.value = stash.Health;
     }
 }

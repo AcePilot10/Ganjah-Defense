@@ -46,7 +46,11 @@ public class SelectionManager : MonoBehaviour {
 
     public void DeselectDefense()
     {
-        selected.Deselect();
+        try
+        {
+            selected.Deselect();
+        }
+        catch (MissingReferenceException) {}
         selected = null;
     }
 

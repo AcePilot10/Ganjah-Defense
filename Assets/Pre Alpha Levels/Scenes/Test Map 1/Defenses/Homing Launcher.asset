@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865fdaf1c2ae35145b44dd9aa522eb3d, type: 3}
+  m_Name: Homing Launcher
+  m_EditorClassIdentifier: 
+  defensePrefab: {fileID: 1556655673070916, guid: 5b7e32e25359ba547955e95cb53fa8d8,
+    type: 2}
+  defenseName: Homing Launcher
+  placeableTextureIndexes: 02000000
+  outlineObject: {fileID: 1231677780897054, guid: 71dd94cae1c55f44ea63b4dc66fc3922,
+    type: 2}
+  info:
+  - 'Damage: 50'
+  - 'ROF: 2'
+  - 'Effectiveness: 2'
+  - 'Range: Far'
+  icon: {fileID: 21300000, guid: ee89a459930732046b4a04e01c3ab3c3, type: 3}
+  price: 0
+  placeOffset: {x: 0, y: 0, z: 0}

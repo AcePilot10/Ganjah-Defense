@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 2baf9646371824f47b8de9b84c2b09bf
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Baza
+    100002: //RootNode
+    100004: Cannon_B___01:Group5132
+    100006: Cannon_B___01:Group5147
+    100008: Cannon_B___01:Group5162
+    100010: Cannon_B___01:Group5192
+    100012: Cannon_B___01:Group5222
+    100014: Cannon_B___01:Group5237
+    100016: Cannon_B___01:Group5267
+    100018: Dungi
+    100020: Group5192
+    100022: Group5267
+    100024: Group5268
+    100026: polySurface26
+    100028: Sfera
+    100030: Sticla
+    100032: Tun
+    400000: Baza
+    400002: //RootNode
+    400004: Cannon_B___01:Group5132
+    400006: Cannon_B___01:Group5147
+    400008: Cannon_B___01:Group5162
+    400010: Cannon_B___01:Group5192
+    400012: Cannon_B___01:Group5222
+    400014: Cannon_B___01:Group5237
+    400016: Cannon_B___01:Group5267
+    400018: Dungi
+    400020: Group5192
+    400022: Group5267
+    400024: Group5268
+    400026: polySurface26
+    400028: Sfera
+    400030: Sticla
+    400032: Tun
+    2100000: BazaMat
+    2100002: Cannon_B___01_Group5132Mat
+    2100004: Cannon_B___01_Group5147Mat
+    2100006: Cannon_B___01_Group5162Mat
+    2100008: Cannon_B___01_Group5192Mat
+    2100010: Cannon_B___01_Group5222Mat
+    2100012: Cannon_B___01_Group5237Mat
+    2100014: Cannon_B___01_Group5267Mat
+    2100016: DungiMat
+    2100018: Group5192Mat
+    2100020: Group5267Mat
+    2100022: Group5268Mat
+    2100024: polySurface26Mat
+    2100026: SferaMat
+    2100028: SticlaMat
+    2100030: TunMat
+    2300000: Baza
+    2300002: Cannon_B___01:Group5132
+    2300004: Cannon_B___01:Group5147
+    2300006: Cannon_B___01:Group5162
+    2300008: Cannon_B___01:Group5192
+    2300010: Cannon_B___01:Group5222
+    2300012: Cannon_B___01:Group5237
+    2300014: Cannon_B___01:Group5267
+    2300016: Dungi
+    2300018: Group5192
+    2300020: Group5267
+    2300022: Group5268
+    2300024: polySurface26
+    2300026: Sfera
+    2300028: Sticla
+    2300030: Tun
+    3300000: Baza
+    3300002: Cannon_B___01:Group5132
+    3300004: Cannon_B___01:Group5147
+    3300006: Cannon_B___01:Group5162
+    3300008: Cannon_B___01:Group5192
+    3300010: Cannon_B___01:Group5222
+    3300012: Cannon_B___01:Group5237
+    3300014: Cannon_B___01:Group5267
+    3300016: Dungi
+    3300018: Group5192
+    3300020: Group5267
+    3300022: Group5268
+    3300024: polySurface26
+    3300026: Sfera
+    3300028: Sticla
+    3300030: Tun
+    4300000: Baza
+    4300002: Cannon_B___01:Group5132
+    4300004: Cannon_B___01:Group5147
+    4300006: Cannon_B___01:Group5162
+    4300008: Cannon_B___01:Group5192
+    4300010: Cannon_B___01:Group5222
+    4300012: Cannon_B___01:Group5237
+    4300014: Cannon_B___01:Group5267
+    4300016: Dungi
+    4300018: Group5192
+    4300020: Group5267
+    4300022: Group5268
+    4300024: polySurface26
+    4300026: Sfera
+    4300028: Sticla
+    4300030: Tun
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

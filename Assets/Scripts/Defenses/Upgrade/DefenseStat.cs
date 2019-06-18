@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [Serializable]
@@ -33,5 +34,5 @@ public class DefenseStat {
     [SerializeField]private float _value;
 
     public int currentUpgrade = 0;
-    public float[] upgradeValue;
+    public List<DefenseUpgrade> upgradeValue;
 }

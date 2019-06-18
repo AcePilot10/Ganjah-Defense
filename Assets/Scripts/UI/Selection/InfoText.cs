@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InfoText : MonoBehaviour {
 
-    public Text text;
+    public TextMeshProUGUI text;
 
 }

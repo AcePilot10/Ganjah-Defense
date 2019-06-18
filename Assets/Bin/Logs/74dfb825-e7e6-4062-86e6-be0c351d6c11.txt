@@ -1,0 +1,6 @@
+Global Difficulty: 10
+Enemy Spawning Power: 1
+Spawning 9 enemies
+Global Difficulty: 18.26302
+Enemy Spawning Power: 3.065754
+Spawning 11 enemies

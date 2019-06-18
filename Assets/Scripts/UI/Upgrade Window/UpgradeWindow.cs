@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeWindow : MonoBehaviour {
+public class UpgradeWindow : DraggableWindow {
 
     public static UpgradeWindow instance;
 
@@ -16,31 +16,37 @@ public class UpgradeWindow : MonoBehaviour {
         instance = this;
     }
 
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void ShowUpgrade(DefenseStat stat, Defense defense, float addValue)
     {
-        gameObject.SetActive(true);
         ClearContent();
+        ShowWindow();
 
         GameObject obj = Instantiate(upgradeScreenPrefab.gameObject) as GameObject;
         obj.transform.parent = contentParent;
         UpgradeContentHolder content = obj.GetComponent<UpgradeContentHolder>();
+        content.transform.localScale = Vector3.one;
 
         content.nameText.text = stat.Name;
         content.currentText.text = stat.Value.ToString();
         content.upgradedText.text = stat.upgradeValue[stat.currentUpgrade].ToString();
+        content.costText.text = stat.upgradeValue[stat.currentUpgrade].cost.ToString();
 
         upgradeButton.onClick.AddListener(() => 
         {
-            stat.Value = stat.upgradeValue[stat.currentUpgrade];
-            stat.currentUpgrade++;
-            DefenseInfoBox.instance.ShowInfo(defense);
-            HideWindow();
+            if (FindObjectOfType<CurrencyManager>().Weed >= stat.upgradeValue[stat.currentUpgrade].cost)
+            {
+                stat.Value = stat.upgradeValue[stat.currentUpgrade].value;
+                stat.currentUpgrade++;
+                DefenseInfoBox.instance.ShowInfo(defense);
+                HideWindow();
+            }
         });
+    }
+
+    public override void HideWindow()
+    {
+        ClearContent();
+        gameObject.SetActive(false);
     }
 
     private void ClearContent()
@@ -52,9 +58,4 @@ public class UpgradeWindow : MonoBehaviour {
         upgradeButton.onClick.RemoveAllListeners();
     }
 
-    public void HideWindow()
-    {
-        ClearContent();
-        gameObject.SetActive(false);
-    }
 }

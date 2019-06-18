@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlacementUtil : MonoBehaviour{
 
-    private static Terrain terrain;
+    public Terrain terrain;
     private static TerrainData terrainData;
     private static Vector3 terrainPos;
 
     void Start()
     {
-        terrain = Terrain.activeTerrain;
         terrainData = terrain.terrainData;
         terrainPos = terrain.transform.position;
     }

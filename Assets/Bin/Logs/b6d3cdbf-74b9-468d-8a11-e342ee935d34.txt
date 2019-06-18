@@ -1,0 +1,8 @@
+Created new stat log file. Id: b6d3cdbf-74b9-468d-8a11-e342ee935d34
+Global Difficulty: 10
+Enemy Spawning Power: 1
+Spawning 9 enemies
+Global Difficulty: 18.26302
+Enemy Spawning Power: 3.065754
+Spawning 11 enemies
+Began placing defense

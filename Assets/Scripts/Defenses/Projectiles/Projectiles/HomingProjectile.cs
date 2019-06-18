@@ -20,8 +20,9 @@ public class HomingProjectile : ProjectileBase {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        LookForward();
         if (!initialized)
         {
             BeginHoming();
@@ -30,6 +31,12 @@ public class HomingProjectile : ProjectileBase {
         {
             UpdateHoming();
         }
+    }
+
+    public void LookForward()
+    {
+        Vector3 offset = new Vector3(0, rotationOffset, 0);
+        transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
     public void BeginHoming()

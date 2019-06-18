@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defense : NewDefenses.DefenseBase
+public class Defense : DefenseBase, IDestroyable
 {
     public DefenseStat fireDelayStat;
-    public LineRenderer selectionLine;
+    public LineRenderer selectionLine1;
+    public LineRenderer selectionLine2;
     public float lineXRadius;
     public float lineYRadius;
 
@@ -47,17 +49,34 @@ public class Defense : NewDefenses.DefenseBase
         AttemptFire();
     }
 
+    public virtual void Destroy()
+    {
+        Deselect();
+        DefenseInfoBox.instance.HideWindow();
+        Destroy(gameObject);
+    }
+
+    public void InvokeOnPlace()
+    {
+        if (OnPlaceEvent != null)
+        {
+            OnPlaceEvent();
+        }
+    }
+
     #region Selection
     public override void Select()
     {
         Debug.Log("Defense selected!");
-        selectionLine.enabled = true;
+        selectionLine1.enabled = true;
+        selectionLine2.enabled = true;
         DefenseInfoBox.instance.ShowInfo(this);
     }
     public override void Deselect()
     {
-        selectionLine.enabled = false;
-        DefenseInfoBox.instance.HideInfo();
+        selectionLine1.enabled = false;
+        selectionLine2.enabled = false;
+        DefenseInfoBox.instance.HideWindow();
     }
     #endregion
     #region Helpers

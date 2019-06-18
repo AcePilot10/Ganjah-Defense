@@ -12,7 +12,7 @@ public class DefenseRangeVisualizer : MonoBehaviour {
 
     void Start()
     {
-        line.useWorldSpace = false;
+        //line.useWorldSpace = false;
         CreatePoints();
     }
 

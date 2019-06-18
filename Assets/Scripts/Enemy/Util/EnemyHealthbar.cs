@@ -17,6 +17,7 @@ public class EnemyHealthbar : MonoBehaviour {
     void Update ()
     {
         if (enemy == null || slider == null) return;
-        slider.value = enemy.health;
+        slider.maxValue = FindObjectOfType<EnemySpawner>().enemyBaseHealth * enemy.healthMultiplier; 
+        slider.value = enemy.currentHP;
 	}
 }

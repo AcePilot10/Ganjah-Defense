@@ -81,7 +81,6 @@ public class LevelManager : MonoBehaviour {
 
     private void AdjustDifficulty()
     {
-
         //TODO: Adjust for stash taken
 
         //Acumalitive Health
@@ -92,21 +91,21 @@ public class LevelManager : MonoBehaviour {
         if (survivalRate == 0)
         {
             DifficultyManager.statusMultiplier += 0.06f * difficulty;
-            DifficultyManager.spawnMultiplier += 0.5f * difficulty;
+            DifficultyManager.spawnMultiplier += 2 * difficulty;
             DifficultyManager.globalDifficulty += 8 * difficulty;
         }
 
         else if (survivalRate < 4)
         {
             DifficultyManager.statusMultiplier -= 0.04f * difficulty;
-            DifficultyManager.spawnMultiplier += 0.2f * difficulty;
+            DifficultyManager.spawnMultiplier += 1.5f * difficulty;
             DifficultyManager.globalDifficulty += 4 * difficulty;
         }
 
         else if (survivalRate < 10 )
         {
             DifficultyManager.statusMultiplier -= 0.05f * difficulty;
-            DifficultyManager.spawnMultiplier -= 0.3f * difficulty;
+            DifficultyManager.spawnMultiplier -=  difficulty;
             DifficultyManager.globalDifficulty -= 3 * difficulty;
         }
 

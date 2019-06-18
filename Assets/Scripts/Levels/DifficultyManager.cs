@@ -2,8 +2,11 @@
 
 public class DifficultyManager {
 
+    //The current overall difficulty power+
     private static float statusPoint = 1;
+    //The current spawn power
     private static float spawnPoint = 1;
+    //The current reward power
     private static float rewardPoint = 1;
 
     public static float globalDifficulty = 10;
@@ -34,7 +37,11 @@ public class DifficultyManager {
     public static int CalculateEnemiesToSpawn()
     {
         int baseAmount = EnemySpawner.instance.baseAmount;
-        return Mathf.RoundToInt(baseAmount + (globalDifficulty / 100) + CalculateSpawnPoint());
+        Debug.Log("Global Difficulty: " + globalDifficulty);
+        Debug.Log("Enemy Spawning Power: " + CalculateSpawnPoint());
+        int enemies = Mathf.RoundToInt(baseAmount + (globalDifficulty / 100) + CalculateSpawnPoint());
+        Debug.Log("Spawning " + enemies + " enemies");
+        return enemies;
     }
     
     public static float CalculateBonusReward()

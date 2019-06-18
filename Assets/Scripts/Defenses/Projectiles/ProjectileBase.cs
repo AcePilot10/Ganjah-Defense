@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour {
 
-    public float damage;
+    protected float damage;
     public float lifeTime = 10f;
     public AudioClip hitSound;
+    public float rotationOffset;
 
     private void Start()
     {
@@ -14,12 +15,14 @@ public class ProjectileBase : MonoBehaviour {
         StartCoroutine(LifetimeDelay());
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public virtual void Update() { }
+
+    protected virtual void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponent<EnemyBase>() != null)
         {
             EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
-            AudioManager.instance.PlayAudio(hitSound);
+            if(hitSound != null)AudioManager.instance.PlayAudio(hitSound);
             enemy.Damage(damage);
             Destroy(gameObject);
         }
@@ -27,6 +30,10 @@ public class ProjectileBase : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetDamage(float damage) {
+        this.damage = damage;
     }
 
     private IEnumerator LifetimeDelay()

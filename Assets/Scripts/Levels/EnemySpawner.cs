@@ -6,11 +6,10 @@ public class EnemySpawner : MonoBehaviour {
 
     public Transform spawnPos;
     public int baseAmount = 10;
-    public float spawnDelay;
-
+    public float minSpawnDelay, maxSpawnDelay;
     public bool isSpawning = false;
-
     public GameObject[] enemies;
+    public float enemyBaseHealth;
 
     public static EnemySpawner instance;
 
@@ -27,13 +26,6 @@ public class EnemySpawner : MonoBehaviour {
         isSpawning = true;
         enemiesSpawned = 0;
         enemiesToSpawn = DifficultyManager.CalculateEnemiesToSpawn();
-
-
-        float level = LevelManager.instance.level;
-        PrototypeStatisticsManager.WriteToFile(string.Format("{0}:{1}", level, enemiesToSpawn));
-
-
-        Debug.Log("Spawning " + enemiesToSpawn + " enemies!");
         StartCoroutine(SpawnDelay());
     }
 
@@ -45,6 +37,7 @@ public class EnemySpawner : MonoBehaviour {
             GameObject obj = Instantiate(GetEnemyToSpawn()) as GameObject;
             obj.transform.position = spawnPos.position;
             obj.transform.parent = GameObject.FindGameObjectWithTag("Enemy Bin").transform;
+            obj.GetComponent<EnemyBase>().SetHealth(enemyBaseHealth);
             StartCoroutine(SpawnDelay());
         }
         else
@@ -81,6 +74,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private IEnumerator SpawnDelay()
     {
+        float spawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
         yield return new WaitForSeconds(spawnDelay);
         SpawnEnemy();
     }

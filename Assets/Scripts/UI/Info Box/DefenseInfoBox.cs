@@ -1,35 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DefenseInfoBox : MonoBehaviour {
+public class DefenseInfoBox : DraggableWindow {
 
     public static DefenseInfoBox instance;
 
     public Transform contentHolder;
     public GameObject statObject;
 
+    private ISelectable currentSelectable;
+
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void ShowInfo(Defense defense)
     {
+        Debug.Log("Showing info for defense " + defense.name);
+        currentSelectable = defense;
         ClearInfo();
         foreach (var stat in defense.Stats)
         {
             GameObject obj = Instantiate(statObject) as GameObject;
             DefenseInfoHolder info = obj.GetComponent<DefenseInfoHolder>();
-            info.statText.text = stat.Name + " : " + stat.Value;
+            info.statText.text = stat.Name + " " + stat.Value;
 
-            if (stat.upgradeValue.Length == stat.currentUpgrade)
+            if (stat.upgradeValue.Count == stat.currentUpgrade)
             {
                 info.upgradeButton.gameObject.SetActive(false);
             }
@@ -43,12 +43,18 @@ public class DefenseInfoBox : MonoBehaviour {
             obj.transform.parent = contentHolder;
             obj.transform.localScale = Vector3.one;
         }
-        gameObject.SetActive(true);
+        ShowWindow();
     }
 
     public void UpgradeButtonClicked(Defense defense, DefenseStat stat)
     {
         UpgradeWindow.instance.ShowUpgrade(stat, defense, 5);
+    }
+
+    public override void HideWindow()
+    {
+        ClearInfo();
+        gameObject.SetActive(false);
     }
 
     private void ClearInfo()
@@ -59,9 +65,11 @@ public class DefenseInfoBox : MonoBehaviour {
         }
     }
 
-    public void HideInfo()
+    public void DeleteDefense()
     {
-        ClearInfo();
-        gameObject.SetActive(false);
+        if (currentSelectable is IDestroyable)
+        {
+            ((IDestroyable)currentSelectable).Destroy();
+        }
     }
 }

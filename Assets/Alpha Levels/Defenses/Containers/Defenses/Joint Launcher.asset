@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865fdaf1c2ae35145b44dd9aa522eb3d, type: 3}
+  m_Name: Joint Launcher
+  m_EditorClassIdentifier: 
+  defensePrefab: {fileID: 888037604517220143, guid: 796c1ebcc2cbff34e84d46c1c052775e,
+    type: 3}
+  defenseName: Joint Launcher
+  placeableTextureIndexes: 02000000
+  outlineObject: {fileID: 7248072591736053088, guid: 1ef2c2b597e95e94fac25100c6260876,
+    type: 3}
+  info: []
+  icon: {fileID: 21300000, guid: ba7bd0d26b656d4439147d7fa2f694bb, type: 3}
+  price: 25
+  placeOffset: {x: 0, y: 0, z: 0}

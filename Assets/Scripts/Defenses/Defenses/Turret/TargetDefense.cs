@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TargetDefense : Defense {
 
+    #region Settings
     public EnemyBase target;
     public DefenseStat rangeStat;
     public DefenseStat rotateSpeed;
     public GameObject rotator;
+    public float scale;
     public bool debug = true;
+    #endregion
 
     public override void DefenseUpdate()
     {
@@ -26,7 +30,10 @@ public class TargetDefense : Defense {
         {
             if (current.gameObject.GetComponent<EnemyBase>() != null)
             {
-                enemies.Add(current.GetComponent<EnemyBase>());
+                if (current.gameObject.GetComponent<EnemyBase>().isAlive)
+                {
+                    enemies.Add(current.GetComponent<EnemyBase>());
+                }
             }
         }
 
@@ -61,7 +68,8 @@ public class TargetDefense : Defense {
         if (target != null)
         {
             Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - rotator.transform.position);
-            transform.rotation = Quaternion.Slerp(rotator.transform.rotation, targetRotation, Time.deltaTime * rotateSpeed.Value);
+            rotator.transform.rotation = Quaternion.Slerp(rotator.transform.rotation, targetRotation, Time.deltaTime * rotateSpeed.Value);
+            rotator.transform.localEulerAngles = new Vector3(0, rotator.transform.localEulerAngles.y, rotator.transform.localEulerAngles.z);
         }
     }
 
@@ -71,25 +79,37 @@ public class TargetDefense : Defense {
         EnemyBase closestEnemy = enemiesInRange[enemiesInRange.Count - 1];
         foreach (EnemyBase enemy in enemiesInRange)
         {
-            float currentEnemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            closestEnemyDistance = currentEnemyDistance;
-            closestEnemy = enemy;
+            if (enemy.isAlive)
+            {
+                float currentEnemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (closestEnemyDistance > currentEnemyDistance)
+                {
+                    closestEnemyDistance = currentEnemyDistance;
+                    closestEnemy = enemy;
+                }
+            }
         }
         return closestEnemy;
     }
     #endregion
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (debug && rangeStat != null)
+        if (Selection.activeGameObject == gameObject)
         {
-            Gizmos.DrawWireSphere(transform.position, rangeStat.Value);
+            if (debug && rangeStat != null)
+            {
+                Gizmos.DrawWireSphere(transform.position, rangeStat.Value);
+            }
         }
     }
+#endif
 
     public override void Select()
     {
-        SelectionLineUtil.DrawCircle(selectionLine, rangeStat.Value);
+        SelectionLineUtil.DrawCircle(selectionLine1, rangeStat.Value, scale);
+        SelectionLineUtil.DrawCircle(selectionLine2, rangeStat.Value / 2, scale);
         base.Select();
     }
 }

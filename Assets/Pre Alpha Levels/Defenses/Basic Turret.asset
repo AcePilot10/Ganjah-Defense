@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865fdaf1c2ae35145b44dd9aa522eb3d, type: 3}
+  m_Name: Basic Turret
+  m_EditorClassIdentifier: 
+  defensePrefab: {fileID: 1971656956174202, guid: 14719d3e64f0b444088d2092e701415e,
+    type: 2}
+  defenseName: Basic Turret
+  placeableTextureIndexes: 02000000
+  outlineObject: {fileID: 1425334687038050, guid: 03e655ffd7111e24d89bafb1d62bcbba,
+    type: 2}
+  info:
+  - Good at close to medium range
+  - Slower rate of fire
+  - Good damage
+  icon: {fileID: 21300000, guid: ba7bd0d26b656d4439147d7fa2f694bb, type: 3}
+  price: 25
+  placeOffset: {x: 0, y: 0, z: 0}
