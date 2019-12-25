@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelayStat:
     _name: Fire Delay
-    _value: 5
+    _value: 15
     currentUpgrade: 0
     upgradeValue: []
   selectionLine1: {fileID: 603419491616582999}
@@ -371,8 +371,8 @@ MonoBehaviour:
   lineXRadius: 5
   lineYRadius: 5
   producerStat:
-    _name: Production Amount
-    _value: 3
+    _name: 
+    _value: 0
     currentUpgrade: 0
     upgradeValue: []
   placeImage: {fileID: 21300000, guid: ff26695ef43414548b3edff6268f0779, type: 3}

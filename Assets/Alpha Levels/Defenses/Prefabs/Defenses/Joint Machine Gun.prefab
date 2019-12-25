@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelayStat:
     _name: Fire Delay
-    _value: 0.025
+    _value: 0.05
     currentUpgrade: 0
     upgradeValue: []
   selectionLine1: {fileID: 120435711485736630, guid: b20e48b772e385f489045538fce1719e,
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rangeStat:
     _name: Range
-    _value: 150
+    _value: 125
     currentUpgrade: 0
     upgradeValue: []
   rotateSpeed:
@@ -1117,8 +1117,8 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   damage: 3.5
   projectileSpeedStat:
-    _name: Projectile Speed Stat
-    _value: 500
+    _name: Projectile Speed
+    _value: 450
     currentUpgrade: 0
     upgradeValue: []
   shootPositions:

@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelayStat:
     _name: Fire Delay
-    _value: 0.7
+    _value: 300
     currentUpgrade: 0
     upgradeValue: []
   selectionLine1: {fileID: 7770739095369897719}
@@ -486,7 +486,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rangeStat:
     _name: Range
-    _value: 75
+    _value: 50
     currentUpgrade: 0
     upgradeValue: []
   rotateSpeed:
@@ -503,7 +503,7 @@ MonoBehaviour:
   damage: 1
   projectileSpeedStat:
     _name: Projectile Speed
-    _value: 50
+    _value: 200
     currentUpgrade: 0
     upgradeValue: []
   flameEffectPrefab: {fileID: 1854005982546932, guid: 9f4ca87e82422b84ca6e9c9dcdc3685d,

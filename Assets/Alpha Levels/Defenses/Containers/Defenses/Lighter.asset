@@ -15,7 +15,7 @@ MonoBehaviour:
   defensePrefab: {fileID: 7673071146751961651, guid: bdddd49bb8295e04da4ef2498a382ab5,
     type: 3}
   defenseName: Lighter Torch
-  placeableTextureIndexes: 02000000
+  placeableTextureIndexes: 00000000
   outlineObject: {fileID: 4571322986166530104, guid: 351ea079c7d51ca4192fecf9cb33e4e1,
     type: 3}
   info: []

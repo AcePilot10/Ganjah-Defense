@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    public int level;
+    [HideInInspector]public int level;
 
     public int levelDelay;
-    public int enemiesKilled = 0;
-    public float stashTaken = 0;
+    private int enemiesKilled = 0;
+    private float stashTaken = 0;
     public AnimationCurve difficultyIncrease;
 
     private bool isSwitchingLevels = false;

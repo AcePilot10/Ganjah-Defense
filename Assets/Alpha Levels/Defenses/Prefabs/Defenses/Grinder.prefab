@@ -9407,7 +9407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireDelayStat:
-    _name: 
+    _name: Fire Delay
     _value: 0
     currentUpgrade: 0
     upgradeValue: []

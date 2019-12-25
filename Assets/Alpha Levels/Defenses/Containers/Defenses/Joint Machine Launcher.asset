@@ -15,7 +15,7 @@ MonoBehaviour:
   defensePrefab: {fileID: 5397563954320699534, guid: 1719ae87810502d44b14c95b82fbd320,
     type: 3}
   defenseName: Joint Machine Launcher
-  placeableTextureIndexes: 02000000
+  placeableTextureIndexes: 00000000
   outlineObject: {fileID: 7248072591736053088, guid: 1ef2c2b597e95e94fac25100c6260876,
     type: 3}
   info: []

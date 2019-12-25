@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelayStat:
     _name: Fire Delay
-    _value: 2
+    _value: 2.5
     currentUpgrade: 0
     upgradeValue: []
   selectionLine1: {fileID: 2139463733381621582}
@@ -1307,12 +1307,12 @@ MonoBehaviour:
   target: {fileID: 0}
   rangeStat:
     _name: Range
-    _value: 200
+    _value: 250
     currentUpgrade: 0
     upgradeValue: []
   rotateSpeed:
     _name: Rotate Speed
-    _value: 35
+    _value: 15
     currentUpgrade: 0
     upgradeValue: []
   rotator: {fileID: 2024943228123328448}
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   damage: 50
   projectileSpeedStat:
     _name: Projectile Speed
-    _value: 800
+    _value: 300
     currentUpgrade: 0
     upgradeValue: []
 --- !u!1 &2025193172318069664

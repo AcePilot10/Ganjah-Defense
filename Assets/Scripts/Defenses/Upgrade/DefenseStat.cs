@@ -30,8 +30,8 @@ public class DefenseStat {
         }
     }
 
-    [SerializeField]private string _name;
-    [SerializeField]private float _value;
+    public string _name;
+    public float _value;
 
     public int currentUpgrade = 0;
     public List<DefenseUpgrade> upgradeValue;

@@ -15,7 +15,7 @@ MonoBehaviour:
   defensePrefab: {fileID: 2025187383564588764, guid: b35eb7c53fed6d840b614053d6a647dd,
     type: 3}
   defenseName: Homing Blunt Launcher
-  placeableTextureIndexes: 02000000
+  placeableTextureIndexes: 00000000
   outlineObject: {fileID: 8891397122227348843, guid: 9011298d7d74c4143879e412f21a8869,
     type: 3}
   info: []

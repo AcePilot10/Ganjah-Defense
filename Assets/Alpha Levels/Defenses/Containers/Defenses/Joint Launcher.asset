@@ -15,10 +15,13 @@ MonoBehaviour:
   defensePrefab: {fileID: 888037604517220143, guid: 796c1ebcc2cbff34e84d46c1c052775e,
     type: 3}
   defenseName: Joint Launcher
-  placeableTextureIndexes: 02000000
+  placeableTextureIndexes: 00000000
   outlineObject: {fileID: 7248072591736053088, guid: 1ef2c2b597e95e94fac25100c6260876,
     type: 3}
-  info: []
+  info:
+  - '- Medium Range'
+  - '- Slow Rate Of Fire'
+  - '- Medium Damage'
   icon: {fileID: 21300000, guid: ba7bd0d26b656d4439147d7fa2f694bb, type: 3}
   price: 25
   placeOffset: {x: 0, y: 0, z: 0}

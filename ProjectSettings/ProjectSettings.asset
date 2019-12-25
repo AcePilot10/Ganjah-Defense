@@ -736,7 +736,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Build: 1
+    Build: 0
     Collab: 1
     ErrorHub: 0
     Hub: 0
@@ -760,9 +760,9 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 19249d04-4a5c-4658-b594-d5ebb7eba8b4
+  cloudProjectId: 043ff81e-8a97-4519-8b1c-c300a3cdf219
   framebufferDepthMemorylessMode: 0
-  projectName: Ganjah Defense
+  projectName: Ganjah Defense (1)
   organizationId: ace-software
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

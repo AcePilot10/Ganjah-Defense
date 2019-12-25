@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour {
 
@@ -26,11 +27,12 @@ public class EnemyBase : MonoBehaviour {
 
     private void Update()
     {
-        Vector3 destination = NavigationManager.instance.waypoints[currentWaypoint].position;
+        //Vector3 destination = NavigationManager.instance.waypoints[currentWaypoint].position;
+        var destination = FindObjectOfType<NavigationManager>().waypoints[currentWaypoint].position;
         float distance = Vector3.Distance(transform.position, destination);
         if (distance <= 5f)
         {
-            if (NavigationManager.instance.waypoints.Count - 1 >= currentWaypoint + 1)
+            if (FindObjectOfType<NavigationManager>().waypoints.Count - 1 >= currentWaypoint + 1)
             {
                 NextWaypoint();
             }
@@ -41,7 +43,8 @@ public class EnemyBase : MonoBehaviour {
     {
         if (isAlive)
         {
-            Vector3 destination = NavigationManager.instance.waypoints[currentWaypoint].position;
+            //Vector3 destination = NavigationManager.instance.waypoints[currentWaypoint].position;
+            var destination = FindObjectOfType<NavigationManager>().waypoints[currentWaypoint].position;
             Vector3 direction = destination - transform.position;
             rb.velocity = direction.normalized * moveSpeed;
             transform.LookAt(destination);

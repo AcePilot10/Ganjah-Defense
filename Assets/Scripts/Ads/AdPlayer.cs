@@ -14,7 +14,7 @@ public class AdPlayer : MonoBehaviour {
     public void ShowAd()
     {
 #if UNITY_ADS
-        string id;
+        string id = "";
 #if UNITY_ANDROID
         id = "2677748";
 #elif UNITY_IOS

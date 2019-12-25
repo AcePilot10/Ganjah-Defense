@@ -15,7 +15,7 @@ MonoBehaviour:
   defensePrefab: {fileID: 7441351763315799060, guid: b71d5839f82cd3349b8f7bf21e11b383,
     type: 3}
   defenseName: Bong Mortar
-  placeableTextureIndexes: 02000000
+  placeableTextureIndexes: 00000000
   outlineObject: {fileID: 7230796152287437915, guid: 1f5903b705193714d88e7d55802dfad1,
     type: 3}
   info: []
